@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-
+{% extends 'base.html' %}
+{% block page_title %}Genre{% endblock page_title %}
+{% block body %}
 
 <h1>Detail Genre: {{ genre.get_name_display }}</h1>
 
@@ -34,5 +28,5 @@ function goBack() {
 
 
 </script>
-</body>
-</html>
+
+{% endblock body %}

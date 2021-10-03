@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Holly movies</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block page_title %}Homepage{% endblock page_title %}
+{% block body %}
+
 <h1>Filmy:</h1><br>
 {% for movie in movies %}
     Jméno: <a href="{% url "movie_detail" movie.pk %}">{{ movie.name }}</a> {{ likes }}<br>
 {% endfor %}
 
-</body>
-</html>
+{% endblock body %}

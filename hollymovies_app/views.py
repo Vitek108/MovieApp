@@ -18,7 +18,7 @@ def movie_detail(request, pk):
     context = {
         "movie": movie,
     }
-    return TemplateResponse(request, "movie_detail.html", context=context)
+    return TemplateResponse(request, "detail/movie_detail.html", context=context)
 
     
 
@@ -28,4 +28,4 @@ def genre_detail(request, genre_name):
     context = {
         'genre': genre
     }
-    return TemplateResponse(request, 'genre_detail.html', context=context)
+    return TemplateResponse(request, 'detail/genre_detail.html', context=context)
