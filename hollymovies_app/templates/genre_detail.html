@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<h1>Detail Genre: {{ genre.get_name_display }}</h1>
+
+{% if genre.description %}
+    <p>Description: {{ genre.description }}</p>
+{% endif %}
+
+{% if genre.movies.all %}
+    <p>Filmy:</p>
+    <ul>
+        {% for movie in genre.movies.all %}
+            <li>{{ movie.name }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+
+
+<button onclick="goBack()">Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+
+
+</script>
+</body>
+</html>
