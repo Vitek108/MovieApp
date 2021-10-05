@@ -2,9 +2,19 @@
 {% block page_title %}Movie{% endblock page_title %}
 {% block body %}
 <h1>Detail filmu: {{ movie.name }}</h1>
+Likes: {{ movie.likes }}
 
 {% if movie.description %}
     <p>Description: {{ movie.description }}</p>
+{% endif %}
+
+{% if movie.actors.all %}
+    <p>Actors:</p>
+    <ul>
+        {% for actor in movie.actors.all %}
+            <li> <a href="{% url "actor_detail" actor.id %}"> {{ actor.name }} </a></li></li>
+        {% endfor %}
+    </ul>
 {% endif %}
 
 {% if movie.genres.all %}
@@ -15,5 +25,10 @@
         {% endfor %}
     </ul>
 {% endif %}
+
+<form action=" {% url 'movie_detail' movie.id %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Líbí se">
+</form>
 
 {% endblock body %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block page_title %}Actor{% endblock page_title %}
+{% block body %}
+
+<h1>Detail Actor: {{ actor.name }}</h1>
+
+
+
+{% comment %} {% if movie.actors.all %} {% endcomment %}
+    <p>Filmy:</p>
+    <ul>
+        {% for m in movie.actors.all %}
+            {% comment %} <li><a href="{% url "movie_detail" movie.pk %}">{{ movie.name }}</a></li> {% endcomment %}
+            {{ m.name }}
+        {% endfor %}
+    </ul>
+{% comment %} {% endif %} {% endcomment %}
+
+
+
+<button onclick="goBack()">Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+
+
+</script>
+
+{% endblock body %}

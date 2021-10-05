@@ -12,7 +12,7 @@
     <p>Filmy:</p>
     <ul>
         {% for movie in genre.movies.all %}
-            <li>{{ movie.name }}</li>
+            <li><a href="{% url "movie_detail" movie.pk %}">{{ movie.name }}</a></li>
         {% endfor %}
     </ul>
 {% endif %}
