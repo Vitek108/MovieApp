@@ -50,4 +50,4 @@ class Movie(BaseModel):
 
 class Actor(BaseModel):
     name = models.CharField(max_length=512)
-    actors = models.ManyToManyField(Movie, related_name="actors")
+    movies = models.ManyToManyField(Movie, related_name="actors")

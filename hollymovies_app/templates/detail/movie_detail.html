@@ -30,5 +30,15 @@ Likes: {{ movie.likes }}
     {% csrf_token %}
     <input type="submit" value="Líbí se">
 </form>
+<br><br>
+<button onclick="goBack()">Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+
+
+</script>
 
 {% endblock body %}

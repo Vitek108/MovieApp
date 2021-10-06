@@ -6,15 +6,14 @@
 
 
 
-{% comment %} {% if movie.actors.all %} {% endcomment %}
+{% if actor.movies.all %}
     <p>Filmy:</p>
     <ul>
-        {% for m in movie.actors.all %}
-            {% comment %} <li><a href="{% url "movie_detail" movie.pk %}">{{ movie.name }}</a></li> {% endcomment %}
-            {{ m.name }}
+        {% for movie in actor.movies.all %}
+            <li><a href="{% url "movie_detail" movie.pk %}">{{ movie.name }}</a></li>
         {% endfor %}
     </ul>
-{% comment %} {% endif %} {% endcomment %}
+{% endif %}
 
 
 
