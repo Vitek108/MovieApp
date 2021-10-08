@@ -4,8 +4,6 @@ from django.template.response import TemplateResponse
 from hollymovies_app.models import Movie, Genre, GENRE_NAME_TO_NAME_SHORTCUT_MAPPING, Actor
 
 
-# Create your views here.
-
 def homepage(request):
     movies_db = Movie.objects.all().order_by("-likes", "name")
     context = {

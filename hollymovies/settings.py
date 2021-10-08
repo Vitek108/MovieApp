@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+
+#připojení aplikací
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,6 +43,7 @@ INSTALLED_APPS = [
     'hollymovies_app'
 ]
 
+# provádí sadu validací před přijetím requestu do view
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -72,7 +75,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'hollymovies.wsgi.application'
 
 
-# Database
+# Database - připojení databází - klidně i více
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
@@ -83,7 +86,7 @@ DATABASES = {
 }
 
 
-# Password validation
+# Password validation - požadavky na heslo pro (super)usera
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [

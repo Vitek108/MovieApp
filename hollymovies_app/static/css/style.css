@@ -3,10 +3,11 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-h1 {
+h1 a {
     color: darkred;
     text-decoration: none;
 }
+
 
 h1:link {
     color:black;
