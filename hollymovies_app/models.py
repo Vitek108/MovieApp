@@ -42,7 +42,9 @@ class Movie(BaseModel):
     name = models.CharField(max_length=512)
     likes = models.IntegerField(default=0)
     description = models.TextField(blank=True, default="")
-    genres = models.ManyToManyField(Genre, related_name="movies") #related_name znamená, že budu na Genre a zavolám movies, vrátí to všechny filmy pro daný žánr
+    genres = models.ManyToManyField(
+        Genre, related_name="movies"
+    )  # related_name znamená, že budu na Genre a zavolám movies, vrátí to všechny filmy pro daný žánr
 
     def __str__(self):
         return f"{self.name} : {self.id}"
