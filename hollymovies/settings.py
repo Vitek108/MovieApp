@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 from pathlib import Path
+from decouple import AutoConfig #pip install python-decouple - pak si můžeme uložit do .env secret key, databázové údaje apod.
+
+config = AutoConfig(os.environ.get("DJANGO_CONFIG_ENV_DIR")) #nastavení ukládání do .env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-j&=7n$ox9hvq%y#_f!qfk+-o#-r$-3w#w5^(v!17j$2#gog4_u'
+SECRET_KEY = config("HOLLYMOVIES_DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -80,10 +83,15 @@ WSGI_APPLICATION = 'hollymovies.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config("DB_NAME"),
+        'USER': config("DB_USER"),
+        'PASSWORD': config("DB_PASSWORD"),
+        'HOST': config("DB_HOST", "localhost"),
+        'PORT': config("DB_PORT", '5432'),
     }
 }
+
 
 
 # Password validation - požadavky na heslo pro (super)usera
