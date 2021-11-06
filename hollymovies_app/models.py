@@ -49,6 +49,11 @@ class Movie(BaseModel):
     def __str__(self):
         return f"{self.name} : {self.id}"
 
+    class Meta:
+        permissions = {
+            ("can_like_movie", "Can like movie")
+        }
+
 
 class Actor(BaseModel):
     name = models.CharField(max_length=512)

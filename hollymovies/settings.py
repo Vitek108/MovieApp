@@ -12,12 +12,12 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 from pathlib import Path
-from decouple import AutoConfig #pip install python-decouple - pak si můžeme uložit do .env secret key, databázové údaje apod.
+from decouple import AutoConfig
 
 config = AutoConfig(os.environ.get("DJANGO_CONFIG_ENV_DIR")) #nastavení ukládání do .env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent 
 
 
 # Quick-start development settings - unsuitable for production
@@ -138,3 +138,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles") #nutno přidat při lokáln�
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = "login"

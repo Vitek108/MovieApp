@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block page_title %}Contact{% endblock page_title %}
+{% block body %}
+
+<h1>Contact</h1><br>
+
+<form action="{% url 'contact' %}" method="post">
+    {% csrf_token %}
+{% comment %}     {{ contact_form.name.name }}:
+    {{ contact_form.name }}
+    <br><br>
+
+    {{ contact_form.email.name }}:
+    {{ contact_form.email }}
+    {{ contact_form.email.errors }}
+    <br><br>
+
+    {{ contact_form.subject.name }}:
+    {{ contact_form.subject }}
+    <br><br>
+
+    {{ contact_form.description.name }}:
+    {{ contact_form.description }} {% endcomment %}
+
+    {{ contact_form.as_p }}
+    <br><br>
+    <input type="submit" value="submit">
+
+</form>
+
+
+{% endblock body %}

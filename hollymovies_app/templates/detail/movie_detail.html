@@ -30,6 +30,9 @@ Likes: {{ movie.likes }}
     {% csrf_token %}
     <input type="submit" value="Líbí se">
 </form>
+
+<a href="{% url 'update_movie' movie.id %}">Update movie</a><br>
+<a href="{% url 'movie_delete' movie.id %}">Delete movie</a>
 <br><br>
 <button onclick="goBack()">Back</button>
 
